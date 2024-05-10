@@ -28,18 +28,37 @@ function Avatar(){
 function Intro(){
     return (
       <div>
-        <h1>Jonas Schmedtmann</h1>
+        <h1>Ezeliora Godsfavour Oluebubechukwu</h1>
         <p>
-          Full-stack web developer and teacher at Udemy. When not coding or
-          preparing a course, I like to play board games, to cook (and eat), or
-          to just enjoy the Portuguese sun at the beach.
+          Progressive Frontend developer with an increasing experience in HTML,
+          CSS, Bootstrap, Tailwind, JavaScript and ReactJS, with a passion for
+          creating visually appealing websites, seeking an opportunity to apply
+          my technical skills and knowledge in a professional setting and also
+          eager to learn new technologies and gain hands-on experience in
+          frontend development.
         </p>
       </div>
     );
 }
 
 function SkillList() {
-  return <div className="skill-list"></div>;
+  return (
+    <div className="skill-list">
+      <Skill skill="HTML + CSS" emoji="💪" color="blue" />
+      <Skill skill="JAVASCRIPT" emoji="💪" color="orange" />
+      <Skill skill="REACT" emoji="💪" color="yellow" />
+      <Skill skill="TAILWIND CSS" emoji="👶" color="orangered" />
+    </div>
+  );
+}
+
+function Skill(props){
+    return(
+        <div className="skill" style={{backgroundColor: props.color}}>
+            <span>{props.skill}</span>
+            <span>{props.emoji}</span>
+        </div>
+    )
 }
 
 const rootElement = document.getElementById("root");
