@@ -48,4 +48,49 @@ function Skill({ skill, color, level }) {
 }
 ```
 
-3. **Conditional Rendering-** 
+3. **Conditional Rendering-** Conditional rendering in React allows you to render different components or content based on certain conditions. 
+Using logical && operator:
+```
+function Skill({ skill, color, level }) {
+  return (
+    <div className="skill" style={{ backgroundColor: color }}>
+      <span>{skill}</span>
+      {/* so we conditionally render some text using the && operator 
+      instead of ternart operator because we have more than 2 options, so we are leveraging the property of
+      short circuiting this operator has */}
+      <span>
+        {level === "beginner" && "👶"}
+        {level === "intermediate" && "👍"}
+        {level === "advanced" && "💪"}
+      </span>
+    </div>
+  );
+}
+```
+In this case, within the <span> element, there are three inline conditional expressions:
+{level === "beginner" && "👶"}:
+
+If the level prop is equal to "beginner", the expression evaluates to "👶".
+If the level prop is not equal to "beginner", the expression short-circuits and returns false, causing "👶" not to be rendered.
+{level === "intermediate" && "👍"}:
+
+If the level prop is equal to "intermediate", the expression evaluates to "👍".
+If the level prop is not equal to "intermediate", the expression short-circuits and returns false, causing "👍" not to be rendered.
+{level === "advanced" && "💪"}:
+
+If the level prop is equal to "advanced", the expression evaluates to "💪".
+If the level prop is not equal to "advanced", the expression short-circuits and returns false, causing "💪" not to be rendered.
+
+Only one of these expressions will evaluate to a truthy value based on the value of the level prop. The corresponding emoji will then be rendered within the <span> element. This is a concise way to conditionally render different content based on the value of a prop or variable.
+
+4. **Rendering the root component and strict mode-**
+```
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
+```

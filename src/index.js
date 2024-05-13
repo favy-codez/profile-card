@@ -5,7 +5,7 @@ import "./index.css";
 const skills = [
   {
     skill: "HTML+CSS",
-    level: "advanced",
+    level: "beginner",
     color: "#2662EA",
   },
   {
@@ -15,7 +15,7 @@ const skills = [
   },
   {
     skill: "Web Design",
-    level: "advanced",
+    level: "intermediate",
     color: "#C3DCAF",
   },
   {
@@ -29,7 +29,7 @@ const skills = [
     color: "#60DAFB",
   },
   {
-    skill: "Svelte",
+    skill: "Tailwind CSS",
     level: "beginner",
     color: "#FF3B00",
   },
@@ -63,12 +63,8 @@ function Intro() {
     <div>
       <h1>Ezeliora Godsfavour Oluebubechukwu</h1>
       <p>
-        Progressive Frontend developer with an increasing experience in HTML,
-        CSS, Bootstrap, Tailwind, JavaScript and ReactJS, with a passion for
-        creating visually appealing websites, seeking an opportunity to apply my
-        technical skills and knowledge in a professional setting and also eager
-        to learn new technologies and gain hands-on experience in frontend
-        development.
+        A Technical wrirter, Frontend developer with an increasing experience in HTML,
+        CSS, Bootstrap, Tailwind CSS, JavaScript and ReactJS.
       </p>
     </div>
   );
@@ -88,7 +84,14 @@ function Skill({ skill, color, level }) {
   return (
     <div className="skill" style={{ backgroundColor: color }}>
       <span>{skill}</span>
-      <span>{level}</span>
+      {/* so we conditionally render some text using the && operator 
+      instead of ternart operator because we have more than 2 options, so we are leveraging the property of
+      short circuiting this operator has */}
+      <span>
+        {level === "beginner" && "👶"}
+        {level === "intermediate" && "👍"}
+        {level === "advanced" && "💪"}
+      </span>
     </div>
   );
 }
