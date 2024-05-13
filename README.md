@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+### During the course of these project, here are some of the the things I learnt
+1. Props - 
+Props (short for "properties") are a fundamental concept in React that allow you to pass data from one component to another. They are similar to function arguments in JavaScript. Props are read-only, meaning that a component receiving props cannot modify them. They are passed down from parent to child components and are immutable within the child component. You can pass any type of data as props, including strings, numbers, arrays, objects, functions, and even React elements. This flexibility allows you to build complex UIs by composing smaller, reusable components that receive data and behavior through props.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```
+function SkillList() {
+  return (
+    <div className="skill-list">
+      <Skill skill="HTML + CSS" emoji="💪" color="blue" />
+      <Skill skill="JAVASCRIPT" emoji="💪" color="orange" />
+      <Skill skill="REACT" emoji="💪" color="yellow" />
+      <Skill skill="TAILWIND CSS" emoji="👶" color="orangered" /> 
+    </div>
+  );
+}
 
-## Available Scripts
+function Skill(props){
+    return(
+        <div className="skill" style={{backgroundColor: props.color}}>
+            <span>{props.skill}</span>
+            <span>{props.emoji}</span>
+        </div>
+    )
+}
 
-In the project directory, you can run:
+```
 
-### `npm start`
+2. **Destructure props-** Destructuring props is a convenient technique in React to extract specific properties directly from the props object. It can make your code cleaner and more readable by reducing the verbosity of accessing props.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+function SkillList() {
+  return (
+    <div className="skill-list">
+      {skills.map((skill) => (
+        <Skill skill={skill.skill} level={skill.level} color={skill.color} />
+      ))}
+    </div>
+  );
+}
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+function Skill({ skill, color, level }) {
+  return (
+    <div className="skill" style={{ backgroundColor: color }}>
+      <span>{skill}</span>
+      <span>{level}</span>
+    </div>
+  );
+}
+```
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. **Conditional Rendering-** 
